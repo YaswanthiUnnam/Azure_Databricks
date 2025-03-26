@@ -18,7 +18,7 @@ This project is a hands-on implementation of **Azure Databricks** for data engin
 - **Azure Key Vault** – Secure storage for secrets and credentials  
 - **Delta Lake** – ACID-compliant storage format for managing big data  
 
-## Features  
+### Features  
 
 - **Databricks Clusters**: Multi-node & single-node setups, runtime optimizations  
 - **Data Ingestion**: Supports structured and semi-structured file formats (CSV, JSON, Parquet)  
@@ -29,7 +29,7 @@ This project is a hands-on implementation of **Azure Databricks** for data engin
 
 
 ## Creating and Managing Azure Databricks Workspace and Clusters
-
+![databricks_cluster](https://github.com/YaswanthiUnnam/Azure_Databricks/blob/88e3c49d5e2b1d501825a9a01d8732caec1132b1/Images/databricks_cluster.png)
 *   Cluster creation in Databricks can be done via the Compute section, offering options for **Multi-node** (with auto-scaling and spot instances) or **Single node** clusters.
 *   **Access modes** for clusters include Single User, Shared (Premium only), and No Isolation Shared.
 *   Selecting the **Databricks runtime version**, including **LTS (Long Term Support)**, is crucial.
