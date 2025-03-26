@@ -18,6 +18,8 @@ This project is a hands-on implementation of **Azure Databricks** for data engin
 - **Azure Key Vault** – Secure storage for secrets and credentials  
 - **Delta Lake** – ACID-compliant storage format for managing big data  
 
+![Architecture](https://github.com/YaswanthiUnnam/Azure_Databricks/blob/9229369cd35a2ccf6f228c4faade9c2cd31c8c0e/Images/architecture.png)
+
 ### Features  
 
 - **Databricks Clusters**: Multi-node & single-node setups, runtime optimizations  
@@ -26,7 +28,6 @@ This project is a hands-on implementation of **Azure Databricks** for data engin
 - **Delta Lake**: ACID transactions, time travel, upserts, schema evolution  
 - **Spark SQL**: Creating tables, views, and querying data  
 - **ADF Integration**: Running notebooks via pipelines, triggers for automation  
-
 
 ## Creating and Managing Azure Databricks Workspace and Clusters
 
@@ -47,7 +48,7 @@ This project is a hands-on implementation of **Azure Databricks** for data engin
 *   Help on dbutils and its methods can be accessed using dbutils.help().
 
 ## Azure Data Lake Storage Gen2
-
+![ResourceGroup](https://github.com/YaswanthiUnnam/Azure_Databricks/blob/9229369cd35a2ccf6f228c4faade9c2cd31c8c0e/Images/resourcegroup.png)
 *   Creating an ADLS Gen2 account in Azure involves enabling the **hierarchical namespace**, which differentiates it from standard Blob Storage and allows for folder structures and fine-grained access control.
 *   Containers (equivalent to folders) are used to organise files.
 *   Access to ADLS Gen2 can be managed through **Access Keys** (full access, handle with care, Key Vault recommended), **SAS Tokens** (granular control over resources, permissions, time, IP), and **Service Principals** (Azure AD applications with RBAC permissions, recommended for automated tools).
@@ -89,7 +90,6 @@ This project is a hands-on implementation of **Azure Databricks** for data engin
 - Handling CSV, JSON, and Parquet formats  
 - Schema definition and dynamic partitioning  
 - Writing raw data to a staging layer  
-
 *   Key steps include defining schemas (using **StructType/StructFields** or DDL strings), reading files with header and schema options, selecting and renaming columns (**select(), withColumnRenamed()**), adding audit columns (**withColumn() with current_timestamp() and lit()**), and writing data to Parquet format (**write.parquet() with overwrite mode**) in the raw container.
 *   Specific handling for multi-line JSON (multiLine option) and reading from folders with multiple files is demonstrated.
 *   Incremental load strategies using partitioning and dynamic overwrite are introduced.
@@ -99,7 +99,6 @@ This project is a hands-on implementation of **Azure Databricks** for data engin
 - Using Spark SQL & DataFrame transformations to clean and enrich data  
 - Implementing joins, aggregations, and window functions  
 - Writing transformed data to Delta Lake
-
 *   **Filter Transformation** (**filter() or where()**) allows selecting data based on conditions, using both Pythonic and SQL syntax.
 *   **Join Transformation** (join()) combines data from multiple DataFrames based on join conditions and types (**inner, left outer, right outer, full outer, semi, anti, cross**).
 *   **Aggregation** (**groupBy() and agg()** with functions like **sum(), count(), avg()**) is used to derive insights, demonstrated with driver and constructor standings.
