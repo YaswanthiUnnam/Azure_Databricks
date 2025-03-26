@@ -152,4 +152,4 @@ This project demonstrates the power of Azure Databricks and Delta Lake in buildi
 <strong>Ramesh Retnasamy</strong>
 
 ## References
-[https://www.udemy.com/course/azure-databricks-spark-core-for-data-engineers/?srsltid=AfmBOoreeYrPptPOGVOYKytuuGpAhj4E6nVd5gOjXPNPj0fNtBIQ34bY&couponCode=ST22MT240325G3]
+[https://www.udemy.com/course/azure-databricks-spark-core-for-data-engineers/?couponCode=ST22MT240325G3]
