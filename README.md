@@ -29,7 +29,7 @@ This project is a hands-on implementation of **Azure Databricks** for data engin
 
 
 ## Creating and Managing Azure Databricks Workspace and Clusters
-![databricks_cluster](https://github.com/YaswanthiUnnam/Azure_Databricks/blob/88e3c49d5e2b1d501825a9a01d8732caec1132b1/Images/databricks_cluster.png)
+
 *   Cluster creation in Databricks can be done via the Compute section, offering options for **Multi-node** (with auto-scaling and spot instances) or **Single node** clusters.
 *   **Access modes** for clusters include Single User, Shared (Premium only), and No Isolation Shared.
 *   Selecting the **Databricks runtime version**, including **LTS (Long Term Support)**, is crucial.
@@ -54,7 +54,7 @@ This project is a hands-on implementation of **Azure Databricks** for data engin
 *   The **ABFS (Azure Blob File System)** driver (abfss://) is recommended for accessing data in ADLS Gen2 from Databricks.
 *   **AAD Credential Passthrough** (Premium tier) allows Databricks to use the user's Azure AD credentials to access the storage account based on their permissions.
 *   **Mounting** ADLS Gen2 to the Databricks workspace using dbutils.fs.mount() allows accessing data using file system semantics instead of long URLs, typically done with Service Principals.
-*   dbutils.fs.mounts() lists existing mounts, and dbutils.fs.unmount() removes a mount.
+*   **dbutils.fs.mounts()** lists existing mounts, and **dbutils.fs.unmount()** removes a mount.
 *   A function-based approach can be used to mount multiple containers efficiently.
 
 ## Recommended Access Patterns for this Project
@@ -76,13 +76,12 @@ This project is a hands-on implementation of **Azure Databricks** for data engin
 └── pipeline/                          # Azure Data Factory pipeline JSON files
 ```
 
-
 ## Azure Key Vault and Secret Scopes
 
-*   **Azure Key Vault** is used to securely store secrets like access keys, SAS tokens, and service principal credentials.
+*   **Azure Key Vault** is used to securely store secrets like **access keys**, **SAS tokens**, and **service principal** credentials.
 *   A **Databricks Secret Scope** links to an Azure Key Vault, allowing secure access to secrets within Databricks notebooks.
-*   The #secrets/createScope command reveals the UI for creating secret scopes, linking them to Key Vault using the Vault URI and Resource ID.
-*   dbutils.secrets.get() is used to retrieve secret values at runtime, avoiding hardcoding.
+*   The **#secrets/createScope** command reveals the UI for creating secret scopes, linking them to Key Vault using the Vault URI and Resource ID.
+*   **dbutils.secrets.get()** is used to retrieve secret values at runtime, avoiding hardcoding.
 
 ## Data Ingestion
 
@@ -91,7 +90,7 @@ This project is a hands-on implementation of **Azure Databricks** for data engin
 - Schema definition and dynamic partitioning  
 - Writing raw data to a staging layer  
 
-*   Key steps include defining schemas (using StructType/StructFields or DDL strings), reading files with header and schema options, selecting and renaming columns (select(), withColumnRenamed()), adding audit columns (withColumn() with current_timestamp() and lit()), and writing data to Parquet format (write.parquet() with overwrite mode) in the raw container.
+*   Key steps include defining schemas (using **StructType/StructFields** or DDL strings), reading files with header and schema options, selecting and renaming columns (**select(), withColumnRenamed()**), adding audit columns (**withColumn() with current_timestamp() and lit()**), and writing data to Parquet format (**write.parquet() with overwrite mode**) in the raw container.
 *   Specific handling for multi-line JSON (multiLine option) and reading from folders with multiple files is demonstrated.
 *   Incremental load strategies using partitioning and dynamic overwrite are introduced.
 
@@ -101,20 +100,19 @@ This project is a hands-on implementation of **Azure Databricks** for data engin
 - Implementing joins, aggregations, and window functions  
 - Writing transformed data to Delta Lake
 
-*   **Filter Transformation** (filter() or where()) allows selecting data based on conditions, using both Pythonic and SQL syntax.
-*   **Join Transformation** (join()) combines data from multiple DataFrames based on join conditions and types (inner, left outer, right outer, full outer, semi, anti, cross).
-*   Practical application of joins is shown in creating a race results dataset by joining multiple Formula 1 data files.
-*   **Aggregation** (groupBy() and agg() with functions like sum(), count(), avg()) is used to derive insights, demonstrated with driver and constructor standings.
-*   **Window Functions** (partitionBy() and orderBy() with ranking functions like rank()) enable calculations across a set of rows related to the current row, used for ranking drivers.
+*   **Filter Transformation** (**filter() or where()**) allows selecting data based on conditions, using both Pythonic and SQL syntax.
+*   **Join Transformation** (join()) combines data from multiple DataFrames based on join conditions and types (**inner, left outer, right outer, full outer, semi, anti, cross**).
+*   **Aggregation** (**groupBy() and agg()** with functions like **sum(), count(), avg()**) is used to derive insights, demonstrated with driver and constructor standings.
+*   **Window Functions** (**partitionBy() and orderBy() with ranking functions like rank()**) enable calculations across a set of rows related to the current row, used for ranking drivers.
 
 ## Spark SQL
 
-*   DataFrames can be accessed using SQL by creating **Temporary Views** (createTempView() or createOrReplaceTempView()) valid within the Spark session or **Global Temporary Views** (createOrReplaceGlobalTempView()) accessible across notebooks on the same cluster.
+*   DataFrames can be accessed using SQL by creating **Temporary Views** (**createTempView() or createOrReplaceTempView()**) valid within the Spark session or **Global Temporary Views** (**createOrReplaceGlobalTempView()**) accessible across notebooks on the same cluster.
 *   **Managed Tables** are created and managed by Spark, with data stored in the warehouse location. Dropping a managed table deletes both metadata and data.
 *   **External Tables** are created with a user-specified location for the data. Dropping an external table only removes the metadata, leaving the data in place.
-*   **Views** are virtual representations of data from tables, created using SQL (CREATE VIEW or CREATE OR REPLACE VIEW).
-*   External tables can be created for various file formats (CSV, JSON, Parquet) by specifying the format and path in the CREATE EXTERNAL TABLE statement.
-*   Managed tables in the processed and presentation layers are created using the .saveAsTable() method.
+*   **Views** are virtual representations of data from tables, created using SQL (**CREATE VIEW or CREATE OR REPLACE VIEW**).
+*   External tables can be created for various file formats (CSV, JSON, Parquet) by specifying the format and path in the **CREATE EXTERNAL TABLE** statement.
+*   Managed tables in the processed and presentation layers are created using the **.saveAsTable()** method.
 *   Spark SQL can be used for data analysis, including calculating consistent race points and identifying dominant drivers and teams.
 
 ## Delta Lake
@@ -122,7 +120,7 @@ This project is a hands-on implementation of **Azure Databricks** for data engin
 *   Delta Lake provides ACID transactions, scalable metadata handling, and unifies streaming and batch data processing on data lakes.
 *   Data can be read and written to Delta Lake using the delta format in Spark read/write operations, similar to Parquet.
 *   Managed and external Delta tables can be created.
-*   Partitioning Delta tables is done using .partitionBy().
+*   Partitioning Delta tables is done using **.partitionBy()**.
 *   Delta Lake supports **updates** (UPDATE), **deletes** (DELETE), and **merges/upserts** (MERGE INTO).
 *   **Time Travel** allows querying historical versions of data using VERSION AS OF or TIMESTAMP AS OF.
 *   **Vacuum** (VACUUM) removes historical versions of data, important for GDPR compliance.
@@ -143,7 +141,6 @@ This project is a hands-on implementation of **Azure Databricks** for data engin
 *   Transformation pipelines execute transformation notebooks, often dependent on the successful completion of ingestion pipelines. **Execute Pipeline** activity can be used to chain pipelines in a master pipeline.
 *   **Triggers** are used to schedule pipeline runs. **Tumbling Window Triggers** are suitable for recurring weekly schedules, allowing parameterisation (window end time) to be passed to pipelines.
 *   Trigger runs and pipeline runs can be monitored in the ADF Monitor tab.
-
 
 # Conclusion
 This project demonstrates the power of Azure Databricks and Delta Lake in building a scalable data engineering pipeline. It integrates well with Azure Data Factory for orchestration, ADLS Gen2 for storage, and Key Vault for secure credentials management.
