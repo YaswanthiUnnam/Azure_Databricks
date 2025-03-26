@@ -144,3 +144,12 @@ This project is a hands-on implementation of **Azure Databricks** for data engin
 # Conclusion
 This project demonstrates the power of Azure Databricks and Delta Lake in building a scalable data engineering pipeline. It integrates well with Azure Data Factory for orchestration, ADLS Gen2 for storage, and Key Vault for secure credentials management.
 
+
+## Contributors
+<strong>Yaswanthi Unnam</strong>
+
+## Credits
+<strong>Ramesh Retnasamy</strong>
+
+## References
+[https://gale.udemy.com/course/azure-databricks-spark-core-for-data-engineers/learn/lecture/37939548#overview]
