@@ -64,15 +64,17 @@ This project is a hands-on implementation of **Azure Databricks** for data engin
 
 ## Project Structure
 
-├── notebooks/                 # Databricks notebooks for data ingestion & transformation 
-│   ├── 01-DataIngestion.py    # Ingest data from ADLS Gen2 
-│   ├── 02-DataTransformation.py  # Apply transformations (joins, aggregations, window functions) 
-│   ├── 03-DeltaLake.py        # Implement Delta Lake operations 
-│   ├── 04-SparkSQL.py         # Utilize Spark SQL for querying 
-│   └── 05-Orchestration.py    # ADF pipeline integration with Databricks 
-├── data/                      # Sample data files (CSV, JSON, Parquet) 
-├── scripts/                   # Supporting scripts (PowerShell, Python, etc.) 
-└── pipeline/                  # Azure Data Factory pipeline JSON files
+```
+├── notebooks/                         # Databricks notebooks for data ingestion & transformation
+│   ├── 01-DataIngestion.py             # Ingest data from ADLS Gen2
+│   ├── 02-DataTransformation.py       # Apply transformations (joins, aggregations, window functions)
+│   ├── 03-DeltaLake.py                 # Implement Delta Lake operations
+│   ├── 04-SparkSQL.py                  # Utilize Spark SQL for querying
+│   └── 05-Orchestration.py             # ADF pipeline integration with Databricks
+├── data/                              # Sample data files (CSV, JSON, Parquet)
+├── scripts/                           # Supporting scripts (PowerShell, Python, etc.)
+└── pipeline/                          # Azure Data Factory pipeline JSON files
+```
 
 
 ## Azure Key Vault and Secret Scopes
